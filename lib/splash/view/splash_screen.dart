@@ -26,16 +26,12 @@ class _SplashScreenState extends State<SplashScreen>
     super.initState();
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-    _controller.dispose();
-  }
-
   loadNextScreen() async {
     var _duration = Duration(seconds: 5);
     return Timer(_duration, () {
-      Navigator.pushNamed(context, AppRoutes.homeScreen);
+      _controller.dispose();
+      Navigator.pushNamedAndRemoveUntil(
+          context, AppRoutes.homeScreen, (route) => false);
     });
   }
 

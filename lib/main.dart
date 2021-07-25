@@ -1,7 +1,10 @@
 import 'package:dictionary/utils/app_routes_generator.dart';
+import 'package:dictionary/utils/env.dart';
+import 'package:dictionary/utils/env_reader.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async{
+  // await EnvReader.initialize(Env.dev);
   runApp(MyApp());
 }
 

@@ -1,7 +1,9 @@
 import 'package:dictionary/detail/view/detail_screen.dart';
 import 'package:dictionary/home/view/home_screen.dart';
+import 'package:dictionary/home/view_model/dictionary_view_model.dart';
 import 'package:dictionary/splash/view/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AppRouteGenerator{
   static Route<dynamic> generateRoute(RouteSettings settings){
@@ -12,7 +14,9 @@ class AppRouteGenerator{
         );
       case AppRoutes.homeScreen:
         return MaterialPageRoute(
-          builder: (_) => HomeScreen(),
+          builder: (_) => ChangeNotifierProvider(
+              create: (context) => DictionaryViewModel(),
+              child: HomeScreen()),
         );
       case AppRoutes.detailScreen:
         return MaterialPageRoute(
